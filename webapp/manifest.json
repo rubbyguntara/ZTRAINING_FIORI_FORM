@@ -7,6 +7,15 @@
 		"applicationVersion": {
 			"version": "1.0.0"
 		},
+		"dataSources": {
+			"northwindRemote": {
+				"uri": "https://cors-anywhere.herokuapp.com/https://services.odata.org/V2/Northwind/Northwind.svc",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+		},
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
 		"sourceTemplate": {
@@ -64,6 +73,9 @@
 				"settings": {
 					"bundleName": "xxxxxxZTRAINING_RUBBY_FORM.i18n.i18n"
 				}
+			},
+			"northwind": {
+				"dataSource": "northwindRemote"
 			}
 		},
 		"resources": {

@@ -3,32 +3,34 @@
 	<App>
 		<pages>
 			<Page title="{i18n>title}">
-				<f:SimpleForm id="fSimpleForm" layout="ResponsiveGridLayout">
+				<f:SimpleForm id="fSimpleForm" layout="ResponsiveGridLayout" editable="true" title="Address" labelSpanXL="3" labelSpanL="3" labelSpanM="3"
+					labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+					singleContainerFullSize="false">
 					<f:content>
 						<Label text="{i18n>input}" design="{i18n>labelBold}"></Label>
-						<Input></Input>
+						<Input id="idInputManual" placeholder="Enter Name"></Input>
 						<Label text="{i18n>datePicker}" design="{i18n>labelBold}"></Label>
 						<DatePicker id="idDatePicker" required="true"></DatePicker>
 						<Label text="{i18n>textArea}" design="{i18n>labelBold}"></Label>
-						<TextArea></TextArea>
+						<TextArea id="idTextArea" showExceededText="true" maxLength="10" liveChange="onLiveChangeTextArea" valueState="Error" valueStateText="Teu Kenging Kosong Jang"></TextArea>
 						<Label text="{i18n>comboBox}" design="{i18n>labelBold}"></Label>
-						<ComboBox>
-							<!--<Item text="1"></Item>-->
-							<!--<Item text="2"></Item>-->
+						<ComboBox id="idComboBox">
+							<core:Item text="Vaksin ke 1" key="valueCombo1"></core:Item>
+							<core:Item text="Vaksin ke 2" key="valueCombo2"></core:Item>
 						</ComboBox>
 						<Label text="{i18n>switch}" design="{i18n>labelBold}"></Label>
-						<HBox>
-							<Switch type="AcceptReject"></Switch>
-						</HBox>
+						<!--<HBox>-->
+							<Switch id="idSwitch" type="AcceptReject"></Switch>
+						<!--</HBox>-->
 						<Label text="{i18n>multipleCombobox}" design="{i18n>labelBold}"></Label>
-						<MultiComboBox>
-							<core:Item text="AZ"/>
-							<core:Item text="Sinopharm"/>
-							<core:Item text="Sinovac"/>
-							<core:Item text="pFizer"/>
+						<MultiComboBox id="idMultiCombo" selectionFinish="onSelectionFinish">
+							<core:Item text="AZ" key="valueMulti1"/>
+							<core:Item text="Sinopharm" key="valueMulti2"/>
+							<core:Item text="Sinovac" key="valueMulti3"/>
+							<core:Item text="pFizer" key="valueMulti4"/>
 						</MultiComboBox>
 						<Label text="{i18n>radioButton}" design="{i18n>labelBold}"></Label>
-						<RadioButtonGroup>
+						<RadioButtonGroup id="idRadioGrp1">
 							<RadioButton text="Option 1"></RadioButton>
 							<RadioButton text="Option 2"></RadioButton>
 							<RadioButton text="Option 3"></RadioButton>
@@ -36,12 +38,18 @@
 						<Label text="{i18n>checkBox}" design="{i18n>labelBold}"></Label>
 						<CheckBox id="idCheckBox"></CheckBox>
 						<Label text="{i18n>searchHelp}" design="{i18n>labelBold}"></Label>
-						<Select id="idSelect" >
-							
-						</Select>
+						<Input id="idSearchHelp" valueHelpRequest="onPressSearchHelp" showValueHelp="true" valueHelpOnly="true"></Input>
 						<!--xmlns:f="sap.ui.layout.form"-->
 					</f:content>
 				</f:SimpleForm>
+				<content></content>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer></ToolbarSpacer>
+						<Button text="{i18n>Submit}" type="Accept" press="onSubmit"></Button>
+						<Button text="{i18n>Cancel}" type="Reject"></Button>
+					</Toolbar>
+				</footer>
 			</Page>
 		</pages>
 	</App>
